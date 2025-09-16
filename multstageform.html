@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-Step Booking Form</title>
+  <style>
+    .content {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+  	<link rel="stylesheet" href="pro1.css">
+</head>
+<body>
+
+  <nav class="top-nav">
+	<p><b>katisha.rw</b></p>
+	<div class="top-navigation" id="myTopnav">
+			<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <a href="pro1.html"><img src="home.png" height="20px" width="10px" >home</a>
+		<a href="about us.html"><img src="about.png" height="20px" width="20px">about us</a>
+        <a href="multstageform.html" class="active"><img src="about.png" height="20px" width="20px">tickets</a>
+		<a href="location.html"><img src="location.png" height="20px" width="20px">locations</a>
+		<a href="contact.html"><img src="contact.png" height="20px" width="20px">contact</a>
+		<a href="help.html"><img src="help.png" height="20px" width="20px">help</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"><img class="bars" src="bars.png"></i>
+		  </a>
+		</div>
+		<div class="buttons" >
+    <button>login</button>
+    <button>sign-up</button>
+  </div>
+</nav>	
+
+<div class="content">
+  <h2>Travel Booking</h2>
+
+  <form id="bookingForm">
+
+    <!-- Step 1 -->
+<div class="step" id="step1">
+		<label>from:</label><input type="text" id="departure" list="locations" name="desfrom" value="" >
+		<datalist id="locations">
+			<option> </option>
+      <!--amajyaruguru-->
+			<option>musanze</option>
+      <option>base </option>
+      <option>miyove </option><option>gatuna </option><option>tetero(miyove) </option><option>nyabugogo </option><option>gicumbi</option><option>musanze via base </option><option>gicumbi via burera </option>
+      <option>rukomo(gicumbi) </option><option>butaro </option><option>kivuye </option><option>gakenke </option><option>gaseke</option>
+      <option>kabali</option><option>kirambo(burera) via nkumba</option><option>kirambo(burera)</option><option>kinigi</option><option>janja</option>
+      <option>rushashi via ruli</option><option>butaro via base</option><option>nyagatare via rushaki</option>
+      <option>karama</option><option>rushaki</option><option>rukomo(nyagatare)</option><option>nyagatare via rukomo</option><option>nyagatare</option>
+      <option>cyuru via rukomo(gicumbi)</option><option>burimbi via rukomo(gicumbi)</option><option>ruli via shyorongi</option><option>nyagahanga via rukomo(gicumbi)</option><option>nyagatare via ngarama</option>
+      <option>ngarama via rukomo(gicumbi)</option><option>mimuri via rukomo(gicumbi)</option><option>buguma via cyabayaga</option>
+       <!--iburasirazuba-->
+		</datalist>
+		<label>to:</label><input type="text" id="destination" list="locations" name="desto" value="">
+		<datalist id="locations">
+			<option>  </option>
+			<option>musanze</option><option>base</option>
+      <option>miyove </option><option>gatuna </option><option>tetero(miyove)</option><option>nyabugogo </option><option>gicumbi</option><option>musanze via base </option><option>gicumbi via burera </option>
+      <option>rukomo(gicumbi) </option><option>butaro </option><option>kivuye </option><option>gakenke </option><option>gaseke</option><option>rutare</option>
+      <option>kabali</option><option>kirambo(burera) via nkumba</option><option>kirambo(burera)</option><option>kinigi</option><option>janja</option><option>rushashi via ruli</option>
+      <option>butaro via base</option>
+      <option>karama</option><option>rushaki</option><option>rukomo(nyagatare)</option><option>nyagatare via rukomo</option><option>nyagatare</option>
+      <option>cyuru via rukomo(gicumbi)</option><option>burimbi via rukomo(gicumbi)</option><option>ruli via shyorongi</option><option>nyagahanga via rukomo(gicumbi)</option><option>nyagatare via ngarama</option>
+      <option>ngarama via rukomo(gicumbi)</option><option>mimuri via rukomo(gicumbi)</option><option>buguma via cyabayaga</option>
+      <option>nyagatare via rushaki</option>
+		</datalist>
+		<label>date:</label><input name="timedate" type="date" required>
+    </div>
+    <!-- Step 2 -->
+    
+       <div class="step active" id="step2">
+      <h3> Personal Info</h3>
+      <input name="name" placeholder="Full Name" required>
+      <input name="email" type="email" placeholder="Email(optional)">
+      <input name="phone" placeholder="Phone" required>
+      <input name="guests" type="number" min="1" value="1" required>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step" id="step3">
+      <h3>Confirm your info</h3>
+      <p><strong>Name:</strong> <span id="confirmName"></span></p>
+      <p><strong>Email:</strong> <span id="confirmEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="confirmPhone"></span></p>
+      <p><strong>From:</strong> <span id="confirmdesfrom"></span></p>
+      <p><strong>To:</strong> <span id="confirmdesto"></span></p>
+      <p><strong>Date:</strong> <span id="confirmtimedate"></span></p>
+      <p><strong>Guests:</strong> <span id="confirmGuests"></span></p>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="prevBtn">Previous</button>
+      <button type="button" id="nextBtn">Next</button>
+      <button type="submit" id="submitBtn" style="display: none;">Submit</button>
+
+    </div>
+
+  </form>
+</div>
+
+  <script>
+    const steps = document.querySelectorAll('.step');
+    let currentStep = 0;
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const form = document.getElementById('bookingForm');
+
+    function showStep(index) {
+      steps.forEach((step, i) => {
+        step.classList.toggle('active', i === index);
+      });
+
+      prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+      nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+      submitBtn.style.display = index === steps.length - 1 ? 'inline-block' : 'none';
+
+      if (index === 2) {
+        const data = new FormData(form);
+        document.getElementById('confirmName').textContent = data.get('name');
+        document.getElementById('confirmEmail').textContent = data.get('email');
+        document.getElementById('confirmPhone').textContent = data.get('phone');
+        document.getElementById('confirmdesfrom').textContent = data.get('desfrom');
+        document.getElementById('confirmdesto').textContent = data.get('desto');
+        document.getElementById('confirmtimedate').textContent = data.get('timedate');
+        document.getElementById('confirmGuests').textContent = data.get('guests');
+      }
+    }
+
+    nextBtn.onclick = () => {
+      const currentInputs = steps[currentStep].querySelectorAll('input');
+      let allValid = true;
+
+      currentInputs.forEach((input) => {
+        if (!input.checkValidity()) {
+          allValid = false;
+        }
+      });
+
+      if (allValid) {
+        currentStep++;
+        showStep(currentStep);
+      } else {
+        const firstInvalid = Array.from(currentInputs).find(input => !input.checkValidity());
+        firstInvalid?.focus();
+      }
+    };
+
+    prevBtn.onclick = () => {
+      currentStep--;
+      showStep(currentStep);
+    };
+
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const json = Object.fromEntries(data.entries());
+
+      try {
+        const res = await fetch('http://localhost:5000/api/booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(json)
+        });
+
+        const result = await res.json();
+
+        if (res.ok) {
+          alert('Booking successful!');
+          form.reset();
+          currentStep = 0;
+          showStep(0);
+        } else {
+          alert(result.error || 'Something went wrong');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Failed to send data');
+      }
+    };
+
+    showStep(currentStep);
+  </script>
+  <div class="footer">
+	<div id="icons"><h1>we are social</h1>
+	<a href="https://wa.me/qr/3THFDUHXVH5XD1" ><img src="watsapp-icon.png" id="watsapp-icon" height="40px" width="40px"></a>
+	<a href="#" ><img src="twiter.png" id="twiter" height="40px" width="40px"></a>
+	<a href="#" ><img src="facebook.png" id="facebook" height="40px" width="40px"></a>
+	<a href="#" ><img src="telegram.png" id="telegram" height="40px" width="40px"></a>
+	<P><img src="cp right.png">all  right reserved</P>
+	</div>
+	<div class="contact-links"><h1>contact us<br/></h1>
+		<img src="watsapp-icon.png" height="20px" width="20px">+250785564401<br/>
+		<img src="call.png" height="20px" width="20px">+250724009716</div>
+	<div class="important-links"><h1>important links<br/></h1><h3><a href="location.html">
+		<img src="location.png" height="20px" width="20px">locations</a>
+	<br/><a href="contact.html"><img src="contact.png" height="20px" width="20px">contact</a>
+	<br/><a href="help.html"><img src="help.png" height="20px" width="20px">help</a></li></h3></div>
+	</div>
+
+</body>
+</html>
